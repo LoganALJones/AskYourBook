@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 8000
 
 # Run the command to start the application
-CMD ["python", "main.py"]
+CMD python manage.py runserver 0.0.0.0:8000
