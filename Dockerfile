@@ -1,21 +1,18 @@
 FROM python:3.9
+ENV PYTHONUNBUFFERED 1
 
 # Set the working directory
-WORKDIR /AskYourBook
+WORKDIR /app
 
-# Copy the requirements file
-COPY requirements.txt .
+# Copy the requirements file to workdir
+COPY requirements.txt /app/requirements.txt
 
 # Install the dependencies
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
-# Copy the rest of the application files
-COPY . .
-
-# Expose the port for the application
-EXPOSE 8000
+# Copy the rest of the application files into workdir
+COPY . /app
 
 # Run the command to start the application
 CMD python manage.py runserver 0.0.0.0:8000
-
 
