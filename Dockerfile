@@ -1,7 +1,7 @@
 FROM python:3.9
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /AskYourBook
 
 # Copy the requirements file
 COPY requirements.txt .
@@ -17,3 +17,5 @@ EXPOSE 8000
 
 # Run the command to start the application
 CMD python manage.py runserver 0.0.0.0:8000
+
+
